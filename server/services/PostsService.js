@@ -1,5 +1,5 @@
 import { dbContext } from '../db/DbContext'
-import { BadRequest } from '../utils/Errors'
+import { BadRequest, Forbidden } from '../utils/Errors'
 
 class PostsService {
   async getAll(query = {}) {
@@ -20,9 +20,12 @@ class PostsService {
     return post
   }
 
-  async remove(id) {
-    await this.getById(id)
-    return await dbContext.Posts.findByIdAndDelete(id)
+  async remove(id, user) {
+    const postToRemove = await this.getById(id)
+    if (postToRemove.userId == user) {
+      return await dbContext.Posts.findByIdAndDelete(id)
+    }
+    throw new Forbidden()
   }
 }
 

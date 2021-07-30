@@ -33,6 +33,7 @@ export class PostsController extends BaseController {
 
   async create(req, res, next) {
     try {
+      req.body.userId = req.userInfo.id
       const post = await postsService.create(req.body)
       res.send(post)
     } catch (error) {
@@ -42,7 +43,7 @@ export class PostsController extends BaseController {
 
   async remove(req, res, next) {
     try {
-      const post = await postsService.remove(req.params.id)
+      await postsService.remove(req.params.id, req.userInfo.id)
       res.send({ message: 'Delorted Post!' })
     } catch (error) {
       next(error)
