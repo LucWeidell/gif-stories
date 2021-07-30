@@ -12,7 +12,6 @@ export class PostsController extends BaseController {
       .get('/:id', this.getById)
       .post('', this.create)
       .delete('/:id', this.remove)
-      .delete('/:id/comments', this.removeCommentsByPost)
   }
 
   async getAll(req, res, next) {
