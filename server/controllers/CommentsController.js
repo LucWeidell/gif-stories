@@ -53,7 +53,8 @@ export class CommentsController extends BaseController {
 
   async archive(req, res, next) {
     try {
-      await commentsService.archive(req.params.id, req.userInfo.id)
+      const archive = await commentsService.archive(req.params.id, req.userInfo.id)
+      res.send({ message: 'Archived comment', archive })
     } catch (error) {
       next(error)
     }
