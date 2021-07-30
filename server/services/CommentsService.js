@@ -30,20 +30,20 @@ class CommentsService {
 
   // NOTE this remove gets rid of actual comment
   // TODO find all objects with post ID and remove those comments
-  async remove(id) {
-    const commentToRemove = await this.getById(id)
-    return await dbContext.Comments.findByIdAndDelete(id)
+  async remove(id, postid) {
+    // const commentToRemove = await
+    // return await dbContext.Comments.findByIdAndDelete(id)
   }
 
   // Note this changes the comment isArchived to true
   async archive(id, userId) {
     const commentToArchive = await this.getById(id)
-    if (_isNotAuthorized(commentToArchive.userId, userId)) {
-    } else {
+    if (!_isNotAuthorized(commentToArchive.userId, userId)) {
       commentToArchive.isArchived = true
-      return await dbContext.Comments
-        .findByIdAndUpdate(commentToArchive.id, commentToArchive, { runValidators: true })
+      const update = await dbContext.Comments.findByIdAndUpdate(commentToArchive.id, commentToArchive, { new: true, runValidators: true })
+      return update
     }
+    throw new BadRequest('could not update')
   }
 }
 

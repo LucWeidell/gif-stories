@@ -1,6 +1,7 @@
 import BaseController from '../utils/BaseController'
 import { Auth0Provider } from '@bcwdev/auth0provider'
 import { postsService } from '../services/PostsService'
+import { commentsService } from '../services/CommentsService'
 
 export class PostsController extends BaseController {
   constructor() {
@@ -11,6 +12,7 @@ export class PostsController extends BaseController {
       .get('/:id', this.getById)
       .post('', this.create)
       .delete('/:id', this.remove)
+      .delete('/:id/comments', this.removeCommentsByPost)
   }
 
   async getAll(req, res, next) {
@@ -46,6 +48,15 @@ export class PostsController extends BaseController {
     try {
       await postsService.remove(req.params.id, req.userInfo.id)
       res.send({ message: 'Delorted Post!' })
+    } catch (error) {
+      next(error)
+    }
+  }
+
+  async removeCommentsByPost(req, res, next) {
+    try {
+      await commentsService.remove(req.params.id)
+      res.send({ message: 'Deleted Comments!' })
     } catch (error) {
       next(error)
     }

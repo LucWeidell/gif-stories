@@ -1,17 +1,19 @@
-import { commentsService } from "../services/CommentsService"
-import BaseController from "../utils/BaseController"
+import { Auth0Provider } from '@bcwdev/auth0provider'
+import { commentsService } from '../services/CommentsService'
+import BaseController from '../utils/BaseController'
 
 export class CommentsController extends BaseController {
-  constructor(){
+  constructor() {
     super('api/comments')
     this.router
-      .get('', this.getAll),
-      .get('/:id', this.getById),
-      .post('', this.create),
-      .delete('/:id', this.archived)
+      .use(Auth0Provider.getAuthorizedUserInfo)
+      .get('', this.getAll)
+      .get('/:id', this.getById)
+      .post('', this.create)
+      .delete('/:id', this.archive)
   }
 
-    async getAll(req, res, next) {
+  async getAll(req, res, next) {
     try {
       const comment = await commentsService.getAll(req.query)
       res.send(comment)
@@ -49,7 +51,11 @@ export class CommentsController extends BaseController {
     }
   }
 
-  async archived(req, res, next) {
-    
+  async archive(req, res, next) {
+    try {
+      await commentsService.archive(req.params.id, req.userInfo.id)
+    } catch (error) {
+      next(error)
+    }
   }
 }
