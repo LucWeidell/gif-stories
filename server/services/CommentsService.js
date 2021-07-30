@@ -28,13 +28,6 @@ class CommentsService {
     return comment
   }
 
-  // NOTE this remove gets rid of actual comment
-  // TODO find all objects with post ID and remove those comments
-  async remove(id, postid) {
-    // const commentToRemove = await
-    // return await dbContext.Comments.findByIdAndDelete(id)
-  }
-
   // Note this changes the comment isArchived to true
   async archive(id, userId) {
     const commentToArchive = await this.getById(id)

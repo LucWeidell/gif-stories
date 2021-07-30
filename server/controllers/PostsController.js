@@ -52,13 +52,4 @@ export class PostsController extends BaseController {
       next(error)
     }
   }
-
-  async removeCommentsByPost(req, res, next) {
-    try {
-      await commentsService.remove(req.params.id)
-      res.send({ message: 'Deleted Comments!' })
-    } catch (error) {
-      next(error)
-    }
-  }
 }

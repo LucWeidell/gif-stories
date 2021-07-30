@@ -21,11 +21,12 @@ class PostsService {
   }
 
   async remove(id, user) {
-    const postToRemove = await this.getById(id)
-    if (postToRemove.userId == user) {
-      return await dbContext.Posts.findByIdAndDelete(id)
+    await this.getById(id)
+    const deleted = await dbContext.Posts.findOneAndDelete({ _id: id, userId: user })
+    if (!deleted) {
+      throw new BadRequest('not able to delete')
     }
-    throw new Forbidden()
+    return deleted
   }
 }
 

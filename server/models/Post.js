@@ -1,4 +1,5 @@
 import mongoose from 'mongoose'
+import { dbContext } from '../db/DbContext'
 const Schema = mongoose.Schema
 
 const Post = new Schema({
@@ -7,5 +8,10 @@ const Post = new Schema({
   gifsUrl: [{ type: String, required: true }] // requires exactly 4 strings
 }, { timestamps: true, toJSON: { virtuals: true } }
 )
+
+Post.post('findOneAndDelete', async(doc, next) => {
+  await dbContext.Comments.deleteMany({ postId: doc._id })
+  next()
+})
 
 export default Post

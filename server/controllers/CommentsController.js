@@ -41,16 +41,6 @@ export class CommentsController extends BaseController {
     }
   }
 
-  /* TODO call comment remover for all comments in this comment */
-  async remove(req, res, next) {
-    try {
-      await commentsService.remove(req.params.id, req.userInfo.id)
-      res.send({ message: 'Delorted comment!' })
-    } catch (error) {
-      next(error)
-    }
-  }
-
   async archive(req, res, next) {
     try {
       const archive = await commentsService.archive(req.params.id, req.userInfo.id)
