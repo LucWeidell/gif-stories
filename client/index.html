@@ -69,16 +69,13 @@
                 <button>
                   Roll All
                 </button>
-                <button>
-                  Create
-                </button>
               </div>
             </div>
           </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Understood</button>
+          <button type="button" class="btn btn-primary">Create!</button>
         </div>
       </div>
     </div>
@@ -86,9 +83,80 @@
   <!-- End Modal code -->
 
   <main class="container-fluid">
-
-
-
+    <div class="row">
+      <div class="col card-group">
+        <!-- The below code will be populated using draw -->
+        <div class="card border-black" id="giphydisplay">
+          <div class="scrollable card-body border-primary overflow-y: auto;">
+            <div class="row  giphydisplay">
+              <!-- <div Class="col card border-black d-flex flex-column giphydisplay" id="giphydisplay"> -->
+              <div class="col-2 p-2"> <img src="http://placehold.it/100x100" alt="Smiley face">
+              </div>
+              <div class="col-2 p-1"> <img src="http://placehold.it/100x100" alt="Smiley face">
+              </div>
+              <div class="col-2 p-1"> <img src="http://placehold.it/100x100" alt="Smiley face">
+              </div>
+              <div class="col-2 p-1"> <img src="http://placehold.it/100x100" alt="Smiley face">
+              </div>
+              <div class="col-1 p-1"></div>
+              <div class="col-3 score">
+                <p id="postocunt">Post Count: 0</p>
+                <p id="score">Score: 0</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- The above code will be populated using draw -->
+    <!-- Below code for Edit starts -->
+    <div class="card border-black">
+      <div class="card-header">
+        <div class="row">
+          <!-- <div Class="col card border-black d-flex flex-column giphydisplay" id="giphydisplay"> -->
+          <div class="col-2 p-2"> <img src="http://placehold.it/100x100" alt="Smiley face">
+          </div>
+          <div class="col-2 p-1"> <img src="http://placehold.it/100x100" alt="Smiley face">
+          </div>
+          <div class="col-2 p-1"> <img src="http://placehold.it/100x100" alt="Smiley face">
+          </div>
+          <div class="col-2 p-1"> <img src="http://placehold.it/100x100" alt="Smiley face">
+          </div>
+          <div class="col-1 p-1"></div>
+          <div class="col-3 score">
+            <p id="postocunt">Post Count: 0</p>
+            <p id="score">Score: 0</p>
+          </div>
+        </div>
+        <!-- CArd Body / Card Footer starts here -->
+        <div class="scrollable black-border card-body overflow-y: auto; max-height: 300px;">
+          <div class="card black-border">
+            <div class="black-border text-overflow: ellipsis break-word text-align:left" id="postcomments">
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut tempora velit molestias accusamus
+                numquam assumenda voluptatibus natus dolorem, dolores ullam fugiat exercitationem iure esse aspernatur
+                nulla. Dicta dignissimos nam cumque?</p>
+            </div>
+          </div>
+          <div class="card black-border">
+            <div class="black-border text-overflow: ellipsis break-word text-align:left" id="postcomments">
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut tempora velit molestias accusamus
+                numquam assumenda voluptatibus natus dolorem, dolores ullam fugiat exercitationem iure esse aspernatur
+                nulla. Dicta dignissimos nam cumque?</p>
+            </div>
+          </div>
+        </div>
+        ​
+        <div class="card-footer p-2">
+          <form onsubmit="app.container.method('${this.id}')">
+            <input type="text" style="width: 1100px;" minlength="3" and maxlength="250" name="comments"
+              placeholder="Add comments..." required>
+            <button type="submit" class="btn btn-outline-success">+</button>
+          </form>
+        </div>
+        <!-- Card body /Card footer ends here -->
+      </div>
+    </div>
+    <!-- Till here the Edit Ends -->
   </main>
 
   <footer class="container-fluid bg-dark text-light">
