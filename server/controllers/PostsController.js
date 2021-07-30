@@ -41,6 +41,7 @@ export class PostsController extends BaseController {
     }
   }
 
+  /* TODO call comment remover for all comments in this post */
   async remove(req, res, next) {
     try {
       await postsService.remove(req.params.id, req.userInfo.id)
