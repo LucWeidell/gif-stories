@@ -1,4 +1,4 @@
-import { commentsService } from "../services/ComentsService"
+import { commentsService } from "../services/CommentsService"
 import BaseController from "../utils/BaseController"
 
 export class CommentsController extends BaseController {
