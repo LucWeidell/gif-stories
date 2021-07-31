@@ -10,6 +10,7 @@ export class PostsController extends BaseController {
       .use(Auth0Provider.getAuthorizedUserInfo)
       .get('', this.getAll)
       .get('/:id', this.getById)
+      .get('/:id/comcount', this.getByIdnComCount)
       .post('', this.create)
       .delete('/:id', this.remove)
   }
@@ -26,6 +27,15 @@ export class PostsController extends BaseController {
   async getById(req, res, next) {
     try {
       const post = await postsService.getById(req.params.id)
+      res.send(post)
+    } catch (error) {
+      next(error)
+    }
+  }
+
+  async getByIdnComCount(req, res, next) {
+    try {
+      const post = await postsService.getByIdnComCount(req.params.id)
       res.send(post)
     } catch (error) {
       next(error)

@@ -9,6 +9,7 @@ export class CommentsController extends BaseController {
       .use(Auth0Provider.getAuthorizedUserInfo)
       .get('', this.getAll)
       .get('/:id', this.getById)
+      .get('/:id/postid', this.getByPostId)
       .post('', this.create)
       .delete('/:id', this.archive)
   }
@@ -25,6 +26,15 @@ export class CommentsController extends BaseController {
   async getById(req, res, next) {
     try {
       const comment = await commentsService.getById(req.params.id)
+      res.send(comment)
+    } catch (error) {
+      next(error)
+    }
+  }
+
+  async getByPostId(req, res, next) {
+    try {
+      const comment = await commentsService.getByPostId(req.params.id)
       res.send(comment)
     } catch (error) {
       next(error)

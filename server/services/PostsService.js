@@ -15,6 +15,32 @@ class PostsService {
     return exists
   }
 
+  async getByIdnComCount(id) {
+    let Totalscore = 0
+    const arrcount = 0
+
+    const exists = await dbContext.Posts.findById(id)
+    if (!exists) {
+      throw new BadRequest('Invalid Id')
+    }
+    const existscom = await dbContext.Comments.find({ postId: id })
+    if (!exists) {
+      Totalscore = 0
+    }
+    if (existscom) {
+      for (let i = 0; i < existscom.length; i++) {
+        Totalscore += existscom[i].votes
+      }
+    }
+    const obj = {}
+    obj[arrcount] = {
+      post: exists,
+      comments: [...existscom],
+      totalScore: Totalscore
+    }
+    return obj
+  }
+
   async create(body) {
     const post = await dbContext.Posts.create(body)
     return post

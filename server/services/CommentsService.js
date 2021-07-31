@@ -23,6 +23,15 @@ class CommentsService {
     return exists
   }
 
+  async getByPostId(id) {
+    // Fetch by Post Id
+    const exists = await dbContext.Comments.find({ postId: id })
+    if (!exists) {
+      throw new BadRequest('Invalid Id')
+    }
+    return exists
+  }
+
   async create(body) {
     const comment = await dbContext.Comments.create(body)
     return comment
