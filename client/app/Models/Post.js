@@ -50,7 +50,8 @@ export default class Post {
   }
 }
 function getCommentTemplate(id) {
-  const postComments = ProxyState.comments.filter(c => c.postId === id)
+  debugger
+  const postComments = ProxyState.comments.filter(c => c.postId == id)
   let template = ''
   postComments.forEach(c => {
     template += c.Template

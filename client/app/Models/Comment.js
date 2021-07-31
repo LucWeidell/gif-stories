@@ -9,7 +9,7 @@ export default class Post {
     this.isArchived = isArchived
   }
 
-  // REVIEW should I contact app here?
+  // REVIEW Maybe refactor the database to have a unique user name as well as the userId
 
   get Template() {
     return `
@@ -23,10 +23,9 @@ export default class Post {
         <p>${this.content}</p>
       </div>
       <div class="col-4">
+      <p><b>${this.userId}</b></p>
             </div>
     </div>
     `
   }
 }
-
-//  <p><b>${commentsController.getAuthName(this.userId)}</b></p>

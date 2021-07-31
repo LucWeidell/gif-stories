@@ -4,6 +4,7 @@ import { api } from './AxiosService.js'
 import { accountService } from './AccountService.js'
 import { socketService } from './SocketService.js'
 import { postsService } from './PostsService.js'
+import { commentsService } from './CommentsService.js'
 
 // @ts-ignore
 // eslint-disable-next-line no-undef
@@ -26,7 +27,7 @@ AuthService.on(AuthService.AUTH_EVENTS.AUTHENTICATED, async() => {
   api.interceptors.request.use(refreshAuthToken)
   ProxyState.user = AuthService.user
   await accountService.getAccount()
-  debugger
+  await commentsService.getAllComments()
   await postsService.getAllPosts()
   socketService.authenticate(AuthService.bearer)
 })
