@@ -11,6 +11,9 @@ class AppState extends EventEmitter {
   comments = []
 
   newPostGifs = []
+
+  // FIXME actually make this a real number
+  largestTitle = 1001
 }
 
 export const ProxyState = new Proxy(new AppState(), {

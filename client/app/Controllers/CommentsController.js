@@ -32,11 +32,11 @@ export class CommentsController {
 
   async addComment(postId) {
     try {
-      event.preventDefault()
       debugger
+      event.preventDefault()
       const form = event.target
       const rawComment = {
-        content: form.data.content,
+        content: form.content.value,
         postId: postId
       }
       const comment = await commentsService.addComment(rawComment)

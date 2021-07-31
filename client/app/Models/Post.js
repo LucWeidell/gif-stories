@@ -36,7 +36,7 @@ export default class Post {
           ${getCommentTemplate(this.id)}
             <div class="card-footer p-2">
               <form onsubmit="app.commentsController.addComment('${this.id}')">
-                <input type="text" style="width: 1100px;" minlength="3" and maxlength="250" name="comments"
+                <input type="text" class="form-control" style="width: 1100px;" minlength="3" and maxlength="250" name="content" id="content"
                   placeholder="Add comments..." required>
                 <button type="submit" class="btn btn-outline-success">+</button>
               </form>
@@ -50,8 +50,7 @@ export default class Post {
   }
 }
 function getCommentTemplate(id) {
-  debugger
-  const postComments = ProxyState.comments.filter(c => c.postId == id)
+  const postComments = ProxyState.comments.filter(c => c.postId === id)
   let template = ''
   postComments.forEach(c => {
     template += c.Template

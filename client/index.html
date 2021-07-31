@@ -27,7 +27,8 @@
         <div class="navbar-nav">
           <!-- NAVLINKS -->
           <!-- Button trigger modal -->
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">
+          <button type="button" class="btn btn-primary" onclick="app.postsController.newAllGif()" data-toggle="modal"
+            data-target="#staticBackdrop">
             New GIF Story!
           </button>
           <!--end Modal code -->
@@ -50,32 +51,41 @@
         </div>
         <div class="modal-body">
           <div class="container-fluid">
-            <div class="row">
-              <div class="col-12">
-                <button>
-                  Roll
-                </button>
-                <button>
-                  Roll
-                </button>
-                <button>
-                  Roll
-                </button>
-                <button>
-                  Roll
-                </button>
+            <div class="row" id="modal-create">
+              <div class="col-3">
+                <div>
+                  <img class="w-100" src="https://media1.giphy.com/media/l57jDfUuQNs9gRrjU0/200w.webp" alt="re-reoll">
+                  <button type="button" class="btn btn-primary" onclick="app.postsController.newOneGif(0)">Roll</button>
+                </div>
+              </div>
+              <div class="col-3">
+                <div>
+                  <img class="w-100" src="https://media1.giphy.com/media/l57jDfUuQNs9gRrjU0/200w.webp" alt="re-reoll">
+                  <button type="button" class="btn btn-primary" onclick="app.postsController.newOneGif(1)">Roll</button>
+                </div>
+              </div>
+              <div class="col-3">
+                <div>
+                  <img class="w-100" src="https://media1.giphy.com/media/l57jDfUuQNs9gRrjU0/200w.webp" alt="re-reoll">
+                  <button type="button" class="btn btn-primary" onclick="app.postsController.newOneGif(2)">Roll</button>
+                </div>
+              </div>
+              <div class="col-3">
+                <div>
+                  <img class="w-100" src="https://media1.giphy.com/media/l57jDfUuQNs9gRrjU0/200w.webp" alt="re-reoll">
+                  <button type="button" class="btn btn-primary" onclick="app.postsController.newOneGif(3)">Roll</button>
+                </div>
               </div>
               <div class="col-12">
-                <button>
-                  Roll All
-                </button>
+                <button type="button" class="btn btn-primary" onclick="app.postsController.newAllGif()">Roll
+                  All</button>
               </div>
             </div>
           </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Create!</button>
+          <button type="button" class="btn btn-primary" onclick="app.postsController.addPost()">Create!</button>
         </div>
       </div>
     </div>

@@ -16,7 +16,9 @@ class CommentsService {
   }
 
   async addComment(rawComment) {
-    const comment = await api.comment('api/comments/', new Comment(rawComment))
+    debugger
+    const comment = await api.post('api/comments', rawComment)
+    ProxyState.comments = [...ProxyState.comments, new Comment(comment.data)]
     return comment
   }
 
