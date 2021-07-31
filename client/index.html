@@ -83,37 +83,81 @@
   <!-- End Modal code -->
 
   <main class="container-fluid">
-    <div class="row">
-      <div class="col card-group">
-        <!-- The below code will be populated using draw -->
-        <div class="card border-black" id="giphydisplay">
-          <div class="scrollable card-body border-primary overflow-y: auto;">
-            <div class="row  giphydisplay">
-              <!-- <div Class="col card border-black d-flex flex-column giphydisplay" id="giphydisplay"> -->
-              <div class="col-2 p-2"> <img src="http://placehold.it/100x100" alt="Smiley face">
-              </div>
-              <div class="col-2 p-1"> <img src="http://placehold.it/100x100" alt="Smiley face">
-              </div>
-              <div class="col-2 p-1"> <img src="http://placehold.it/100x100" alt="Smiley face">
-              </div>
-              <div class="col-2 p-1"> <img src="http://placehold.it/100x100" alt="Smiley face">
-              </div>
-              <div class="col-1 p-1"></div>
-              <div class="col-3 score">
-                <p id="postocunt">Post Count: 0</p>
-                <p id="score">Score: 0</p>
+    <div class="side-bar-scroll" id="giphydisplay">
+      <!-- The below code will be populated using draw -->
+      <div class="card post-border">
+        <div class="card-header">
+          <div class="row">
+            <div class="col-2 p-2"> <img src="http://placehold.it/100x100" alt="Smiley face">
+            </div>
+            <div class="col-2 p-1"> <img src="http://placehold.it/100x100" alt="Smiley face">
+            </div>
+            <div class="col-2 p-1"> <img src="http://placehold.it/100x100" alt="Smiley face">
+            </div>
+            <div class="col-2 p-1"> <img src="http://placehold.it/100x100" alt="Smiley face">
+            </div>
+            <div class="col-1 p-1">
+              <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#test2">+/-</button>
+            </div>
+            <div class="col-3 score">
+              <p id="postocunt">Post Count: 0</p>
+              <p id="score">Score: 0</p>
+            </div>
+            <!-- CArd Body / Card Footer starts here -->
+            <div class="col-md-12 collapse side-bar-scroll" id="test2">
+              <div class="black-border card-body;">
+                <div class="row comment-border m-1">
+                  <!-- <div class="card black-border"> -->
+                  <!-- <div class="black-border text-overflow: ellipsis break-word text-align:left" id="postcomments"> -->
+                  <div class="col-md-3 d-flex justify-content-around align-items-center">
+                    <button type="button" class="btn btn-primary">+</button>
+                    <p>Score: <span id="ID+span">SCORETOEDITHERE</span></p>
+                    <button type="button" class="btn btn-primary">-</button>
+                  </div>
+                  <div class="col-md-10">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut tempora velit molestias accusamus
+                      numquam assumenda voluptatibus natus dolorem, dolores ullam fugiat exercitationem iure esse
+                      aspernatur
+                      nulla. Dicta dignissimos nam cumque?</p>
+                  </div>
+                </div>
+                <div class="row comment-border m-1">
+                  <!-- <div class="card black-border"> -->
+                  <!-- <div class="black-border text-overflow: ellipsis break-word text-align:left" id="postcomments"> -->
+                  <div class="col-md-3 d-flex justify-content-around align-items-center">
+                    <button type="button" class="btn btn-primary">+</button>
+                    <p>Score: <span id="ID+span">SCORETOEDITHERE</span></p>
+                    <button type="button" class="btn btn-primary">-</button>
+                  </div>
+                  <div class="col-md-10">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut tempora velit molestias accusamus
+                      numquam assumenda voluptatibus natus dolorem, dolores ullam fugiat exercitationem iure esse
+                      aspernatur
+                      nulla. Dicta dignissimos nam cumque?</p>
+                  </div>
+
+                </div>​
+                <div class="card-footer p-2">
+                  <form onsubmit="app.container.method('${this.id}')">
+                    <input type="text" style="width: 1100px;" minlength="3" and maxlength="250" name="comments"
+                      placeholder="Add comments..." required>
+                    <button type="submit" class="btn btn-outline-success">+</button>
+                  </form>
+                </div>
+                <!-- Card body /Card footer ends here -->
               </div>
             </div>
           </div>
         </div>
       </div>
+      <!-- The below code will be populated using draw -->
     </div>
+
     <!-- The above code will be populated using draw -->
     <!-- Below code for Edit starts -->
     <div class="card border-black">
       <div class="card-header">
         <div class="row">
-          <!-- <div Class="col card border-black d-flex flex-column giphydisplay" id="giphydisplay"> -->
           <div class="col-2 p-2"> <img src="http://placehold.it/100x100" alt="Smiley face">
           </div>
           <div class="col-2 p-1"> <img src="http://placehold.it/100x100" alt="Smiley face">
@@ -122,41 +166,60 @@
           </div>
           <div class="col-2 p-1"> <img src="http://placehold.it/100x100" alt="Smiley face">
           </div>
-          <div class="col-1 p-1"></div>
+          <div class="col-1 p-1">
+            <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#test2">+/-</button>
+          </div>
           <div class="col-3 score">
             <p id="postocunt">Post Count: 0</p>
             <p id="score">Score: 0</p>
           </div>
-        </div>
-        <!-- CArd Body / Card Footer starts here -->
-        <div class="scrollable black-border card-body overflow-y: auto; max-height: 300px;">
-          <div class="card black-border">
-            <div class="black-border text-overflow: ellipsis break-word text-align:left" id="postcomments">
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut tempora velit molestias accusamus
-                numquam assumenda voluptatibus natus dolorem, dolores ullam fugiat exercitationem iure esse aspernatur
-                nulla. Dicta dignissimos nam cumque?</p>
+          <!-- CArd Body / Card Footer starts here -->
+          <div class="col-md-12 collapse side-bar-scroll" id="test2">
+            <div class="black-border card-body;">
+              <div class="row comment-border m-1">
+                <!-- <div class="card black-border"> -->
+                <!-- <div class="black-border text-overflow: ellipsis break-word text-align:left" id="postcomments"> -->
+                <div class="col-md-3 d-flex justify-content-around align-items-center">
+                  <button type="button" class="btn btn-primary">+</button>
+                  <p>Score: <span id="ID+span">SCORETOEDITHERE</span></p>
+                  <button type="button" class="btn btn-primary">-</button>
+                </div>
+                <div class="col-md-10">
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut tempora velit molestias accusamus
+                    numquam assumenda voluptatibus natus dolorem, dolores ullam fugiat exercitationem iure esse
+                    aspernatur
+                    nulla. Dicta dignissimos nam cumque?</p>
+                </div>
+              </div>
+              <div class="row comment-border m-1">
+                <!-- <div class="card black-border"> -->
+                <!-- <div class="black-border text-overflow: ellipsis break-word text-align:left" id="postcomments"> -->
+                <div class="col-md-3 d-flex justify-content-around align-items-center">
+                  <button type="button" class="btn btn-primary">+</button>
+                  <p>Score: <span id="ID+span">SCORETOEDITHERE</span></p>
+                  <button type="button" class="btn btn-primary">-</button>
+                </div>
+                <div class="col-md-10">
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut tempora velit molestias accusamus
+                    numquam assumenda voluptatibus natus dolorem, dolores ullam fugiat exercitationem iure esse
+                    aspernatur
+                    nulla. Dicta dignissimos nam cumque?</p>
+                </div>
+              </div>​
+              <div class="card-footer p-2">
+                <form onsubmit="app.container.method('${this.id}')">
+                  <input type="text" style="width: 1100px;" minlength="3" and maxlength="250" name="comments"
+                    placeholder="Add comments..." required>
+                  <button type="submit" class="btn btn-outline-success">+</button>
+                </form>
+              </div>
+              <!-- Card body /Card footer ends here -->
             </div>
           </div>
-          <div class="card black-border">
-            <div class="black-border text-overflow: ellipsis break-word text-align:left" id="postcomments">
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut tempora velit molestias accusamus
-                numquam assumenda voluptatibus natus dolorem, dolores ullam fugiat exercitationem iure esse aspernatur
-                nulla. Dicta dignissimos nam cumque?</p>
-            </div>
-          </div>
         </div>
-        ​
-        <div class="card-footer p-2">
-          <form onsubmit="app.container.method('${this.id}')">
-            <input type="text" style="width: 1100px;" minlength="3" and maxlength="250" name="comments"
-              placeholder="Add comments..." required>
-            <button type="submit" class="btn btn-outline-success">+</button>
-          </form>
-        </div>
-        <!-- Card body /Card footer ends here -->
       </div>
     </div>
-    <!-- Till here the Edit Ends -->
+    <!-- code for testing here -->
   </main>
 
   <footer class="container-fluid bg-dark text-light">
@@ -167,22 +230,20 @@
     </div>
   </footer>
   <!-- scripts -->
-  <div>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="https://cdn.auth0.com/js/auth0-spa-js/1.15/auth0-spa-js.production.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/jakeoverall/auth0provider-client/browser/AuthProvider.browser.js"></script>
-    <script src="https://cdn.socket.io/4.1.1/socket.io.min.js"
-      integrity="sha384-cdrFIqe3RasCMNE0jeFG9xJHog/tgOVC1E9Lzve8LQN1g5WUHo0Kvk1mawWjxX7a"
-      crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://cdn.auth0.com/js/auth0-spa-js/1.15/auth0-spa-js.production.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/jakeoverall/auth0provider-client/browser/AuthProvider.browser.js"></script>
+  <script src="https://cdn.socket.io/4.1.1/socket.io.min.js"
+    integrity="sha384-cdrFIqe3RasCMNE0jeFG9xJHog/tgOVC1E9Lzve8LQN1g5WUHo0Kvk1mawWjxX7a"
+    crossorigin="anonymous"></script>
 
-    <script src="app/main.js" type="module"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-      crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
-      crossorigin="anonymous"></script>
-  </div>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+    crossorigin="anonymous"></script>
+  <script src="app/main.js" type="module"></script>
   <!-- end scripts -->
 </body>
 

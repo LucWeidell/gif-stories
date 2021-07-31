@@ -19,4 +19,15 @@ main {
   background-color: black;
 }
 
+.side-bar-scroll {
+  overflow-y: auto;
+  max-height: 80vh;
+}
 
+.post-border {
+  outline: 1px solid black;
+}
+
+.comment-border {
+  outline: 1px solid rgb(100, 100, 100);
+}
