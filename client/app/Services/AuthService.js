@@ -3,6 +3,7 @@ import { audience, clientId, domain } from '../env.js'
 import { api } from './AxiosService.js'
 import { accountService } from './AccountService.js'
 import { socketService } from './SocketService.js'
+import { postsService } from './PostsService.js'
 
 // @ts-ignore
 // eslint-disable-next-line no-undef
@@ -23,8 +24,10 @@ export const AuthService = Auth0Provider.initialize({
 AuthService.on(AuthService.AUTH_EVENTS.AUTHENTICATED, async() => {
   api.defaults.headers.authorization = AuthService.bearer
   api.interceptors.request.use(refreshAuthToken)
-  ProxyState.user = AuthService.user    
+  ProxyState.user = AuthService.user
   await accountService.getAccount()
+  debugger
+  await postsService.getAllPosts()
   socketService.authenticate(AuthService.bearer)
 })
 

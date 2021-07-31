@@ -7,6 +7,10 @@ class AppState extends EventEmitter {
   account = {}
   /** @type {import('./Models/Value').Value[]} */
   values = []
+  posts = []
+  comments = []
+
+  newPostGifs = []
 }
 
 export const ProxyState = new Proxy(new AppState(), {
