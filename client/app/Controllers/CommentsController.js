@@ -30,6 +30,15 @@ export class CommentsController {
     }
   }
 
+  async changeScore(comId, score) {
+    try {
+      // FIXME broken
+      comst res =await commentsService.changeScore(comId, score)
+    } catch (error) {
+      logger.log('Error changing Score:', error)
+    }
+  }
+
   async addComment(postId) {
     try {
       debugger

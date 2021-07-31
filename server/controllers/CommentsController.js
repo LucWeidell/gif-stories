@@ -10,8 +10,22 @@ export class CommentsController extends BaseController {
       .get('', this.getAll)
       .get('/:id', this.getById)
       .get('/:id/postid', this.getByPostId)
+      .put('/id/', this.editScore)
       .post('', this.create)
       .delete('/:id', this.archive)
+  }
+
+  async editScore(req, res, next) {
+    try {
+      // FIXME broken
+      const score = await commentsService.editScore()
+      res.send({
+        message: 'Score is:',
+        score: score
+      })
+    } catch (error) {
+      next(error)
+    }
   }
 
   async getAll(req, res, next) {

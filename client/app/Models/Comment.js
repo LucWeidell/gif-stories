@@ -15,9 +15,9 @@ export default class Post {
     return `
     <div class="row comment-border m-1">
       <div class="col-md-3 d-flex justify-content-around align-items-center">
-        <button type="button" class="btn btn-primary">+</button>
+        <button type="button" class="btn btn-primary" onclick="app.controllers.changeScore(1)">+</button>
         <p>Score: <span id="${this.id}-score">${this.votes}</span></p>
-        <button type="button" class="btn btn-primary">-</button>
+        <button type="button" class="btn btn-primary" onclick="app.controllers.changeScore(-1)">-</button>
       </div>
       <div class="col-md-10">
         <p>${this.content}</p>

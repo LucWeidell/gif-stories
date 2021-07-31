@@ -10,6 +10,11 @@ function _isNotAuthorized(id, userId) {
 }
 
 class CommentsService {
+  async editScore(body, id) {
+    // FIXME broken
+    await dbContext.Comments.findByIdAndUpdate()
+  }
+
   async getAll(query = {}) {
     const comments = await dbContext.Comments.find(query)
     return comments

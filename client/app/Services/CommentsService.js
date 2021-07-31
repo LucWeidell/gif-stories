@@ -4,6 +4,10 @@ import { logger } from '../Utils/Logger.js'
 import { api } from './AxiosService.js'
 
 class CommentsService {
+  async changeScore(comId, score) {
+    /FIXME broken
+    const res = await api.put('api/comments/'+comId, )
+  }
   async getAllComments() {
     const comments = await api.get('api/comments')
     ProxyState.comments = comments.data.map(p => new Comment(p))
