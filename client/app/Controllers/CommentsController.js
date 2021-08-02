@@ -33,7 +33,8 @@ export class CommentsController {
   async changeScore(comId, score) {
     try {
       // FIXME broken
-      comst res =await commentsService.changeScore(comId, score)
+      const res = await commentsService.changeScore(comId, score)
+      console.log(res.data)
     } catch (error) {
       logger.log('Error changing Score:', error)
     }

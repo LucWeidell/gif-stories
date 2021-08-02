@@ -1,6 +1,7 @@
 import { ProxyState } from '../AppState.js'
 import { postsService } from '../Services/PostsService.js'
 import { logger } from '../Utils/Logger.js'
+// import $ from 'jquery'
 
 function _drawAllPosts() {
   let template = ''
@@ -103,6 +104,7 @@ export class PostsController {
   async addPost(id) {
     try {
       const post = await postsService.addPost(id)
+      // $('#staticBackdrop').toggle('hide')
       return post
     } catch (error) {
       logger.log('Failed adding post', error)

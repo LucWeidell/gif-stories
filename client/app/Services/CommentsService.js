@@ -5,9 +5,10 @@ import { api } from './AxiosService.js'
 
 class CommentsService {
   async changeScore(comId, score) {
-    /FIXME broken
-    const res = await api.put('api/comments/'+comId, )
+    // FIXME broken
+    const res = await api.put('api/comments/' + comId)
   }
+
   async getAllComments() {
     const comments = await api.get('api/comments')
     ProxyState.comments = comments.data.map(p => new Comment(p))
@@ -20,7 +21,6 @@ class CommentsService {
   }
 
   async addComment(rawComment) {
-    debugger
     const comment = await api.post('api/comments', rawComment)
     ProxyState.comments = [...ProxyState.comments, new Comment(comment.data)]
     return comment

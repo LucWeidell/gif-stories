@@ -22,10 +22,11 @@ export default class Post {
       <div class="col-md-10">
         <p>${this.content}</p>
       </div>
-      <div class="col-4">
-      <p><b>${this.userId}</b></p>
-            </div>
     </div>
     `
   }
 }
+
+{ /* <div class="col-4">
+<p><b>${this.userId}</b></p>
+      </div> */ }
